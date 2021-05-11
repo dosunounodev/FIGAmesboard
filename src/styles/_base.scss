@@ -1,0 +1,53 @@
+// Base
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+form {
+  width: 100%;
+  table {
+    background-color: #b5a0d9;
+  }
+}
+table {
+  width: 100%;
+}
+
+tr {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  font-size: 1rem;
+}
+
+table:nth-child(even) td {
+  background-color: #f5f6f7;
+}
+table:nth-child(odd) td {
+  background-color: #fff;
+}
+
+th,
+td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  // border: 1px solid black;
+}
+
+tr input {
+  width: 100%;
+}
+
+tbody tr:hover {
+  background-color: #b5a0d9;
+}
