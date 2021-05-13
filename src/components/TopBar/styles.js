@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Header = styled.header`
+const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -21,4 +21,4 @@ const Header = styled.header`
   }
 `;
 
-export { Header };
+export { HeaderContainer };

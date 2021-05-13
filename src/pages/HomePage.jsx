@@ -1,6 +1,6 @@
 import React from "react";
-import LinkButton from "../components/LinkButton";
-import { LogoHeader } from "../components/Logo/styles";
+import LinkButton from "components/LinkButton";
+import { LogoHeader } from "components/Logo/styles";
 import { Header } from "./HomeStyles";
 
 const HomePage = () => {

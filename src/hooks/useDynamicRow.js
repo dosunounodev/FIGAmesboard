@@ -1,43 +1,50 @@
 import { useState } from "react";
-import { editData } from "../services/editData";
-import { getData } from "../services/getData";
-import { deleteData } from "../services/deleteData";
-import initialValues from "../components/DynamicRow/initialValues";
+import { editData } from "services/editData";
+import { getData } from "services/getData";
+import { deleteData } from "services/deleteData";
 
 const useDynamicRow = ({ type, data }) => {
+  const [visible, setVisible] = useState(true);
   const [isForm, setIsForm] = useState(false);
+  const [inputValues, setInputValues] = useState(data);
 
-  const initialInputValues = initialValues({ type, data });
-
-  const [inputValues, setInputValues] = useState(initialInputValues);
-
-  const handleSubmit = async (e) => {
+  const handleEdit = async (e) => {
     e.preventDefault();
-    await editData({
-      item: type,
-      itemData: inputValues,
+    const { error, results } = await editData({
+      type,
+      item: inputValues,
     });
+    error ? alert(error) : setInputValues(results);
     setIsForm(false);
   };
 
-  const handleCancel = async () => {
-    const { results } = await getData({ item: type, id: data.id });
-    setInputValues(results[0]);
+  const handleCancelEdit = async () => {
+    const { error, results } = await getData({ type, id: data.id });
+    error ? alert(error) : setInputValues(...results);
     setIsForm(false);
   };
 
   const handleDelete = async () => {
     let confirmacion = window.confirm("estas seguro?");
-    confirmacion && deleteData({ item: type, id: data.id });
+    if (confirmacion) {
+      const { error } = await deleteData({ type, id: data.id });
+      if (error) {
+        alert(error);
+      } else {
+        alert("borrado con exito");
+        setVisible(false);
+      }
+    }
   };
 
   return {
+    visible,
     isForm,
     setIsForm,
     inputValues,
     setInputValues,
-    handleSubmit,
-    handleCancel,
+    handleEdit,
+    handleCancelEdit,
     handleDelete,
   };
 };

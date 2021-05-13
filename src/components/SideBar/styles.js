@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-const SideNavNar = styled.nav`
+const SideBarContainer = styled.nav`
   position: fixed;
   top: 100px;
   left: 0;
+  z-index: 100;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,4 +63,4 @@ const SideNavNar = styled.nav`
   }
 `;
 
-export { SideNavNar };
+export { SideBarContainer };

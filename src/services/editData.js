@@ -1,24 +1,23 @@
 import axios from "axios";
+import { URL } from "./settings";
 
-const URL = "http://localhost:3004";
-
-const editData = async ({ item, itemData }) => {
+const editData = async ({ type, item }) => {
   try {
     let options = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: JSON.stringify(itemData),
+      data: JSON.stringify(item),
     };
-    let response = await axios(`${URL}/${item}/${itemData.id}`, options);
+    let response = await axios(`${URL}/${type}/${item.id}`, options);
     let results = await response.data;
     let error = null;
     return { results, error };
   } catch (err) {
-    let error = `Error ${err.response.status || "X"} : ${
-      err.response.statusText ||
-      `Se produjo un error al hacer PUT en: "${URL}/${item}/${itemData.id}"`
+    let error = `Error ${err.response?.status || "X"} : ${
+      err.response?.statusText ||
+      `Se produjo un error al hacer PUT en: "${URL}/${type}/${item.id}"`
     }`;
     let results = null;
     return { results, error };

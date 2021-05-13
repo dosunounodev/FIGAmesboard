@@ -1,13 +1,18 @@
 import React from "react";
+import { VisibleTable } from "./styles";
 
-const GamesTableRow = ({ inputValues, isForm, setIsForm, handleDelete }) => {
+const GamesTableRow = ({ visible, setIsForm, inputValues, handleDelete }) => {
+  let franchisesListName = inputValues.franchises.map((franchise) => {
+    return franchise.name;
+  });
+
   return (
-    <table>
+    <VisibleTable visible={visible}>
       <tbody>
-        <tr onDoubleClick={() => setIsForm(!isForm)}>
+        <tr onDoubleClick={() => setIsForm(true)}>
           <td className="name">{inputValues.name}</td>
           <td className="console">{inputValues.console.name}</td>
-          <td className="franchise">{inputValues.franchises[0].name}</td>
+          <td className="franchise">{franchisesListName.join(", ")}</td>
           <td className="year">{inputValues.year}</td>
           <td className="hours">{inputValues.hours}</td>
           <td className="description">
@@ -25,7 +30,7 @@ const GamesTableRow = ({ inputValues, isForm, setIsForm, handleDelete }) => {
           </td>
 
           <td>
-            <button onClick={() => setIsForm(!isForm)}>Edit</button>
+            <button onClick={() => setIsForm(true)}>Edit</button>
           </td>
           <td>
             <button
@@ -38,7 +43,7 @@ const GamesTableRow = ({ inputValues, isForm, setIsForm, handleDelete }) => {
           </td>
         </tr>
       </tbody>
-    </table>
+    </VisibleTable>
   );
 };
 

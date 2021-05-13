@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MainLayout from "../components/Layouts/MainLayout";
-import HomePage from "../pages/HomePage";
-import GamesPage from "../pages/Games/GamesPage";
-import GamesAddPage from "../pages/Games/GamesAddPage";
-import GamesAddBatchPage from "../pages/Games/GamesAddBatchPage";
-import ConsolesPage from "../pages/Consoles/ConsolesPage";
-import ConsolesAddPage from "../pages/Consoles/ConsolesAddPage";
-import FranchisesPage from "../pages/Franchises/FranchisesPage";
-import FranchisesAddPage from "../pages/Franchises/FranchisesAddPage";
-import SettingsPage from "../pages/SettingsPage";
-import SearchResultsPage from "../pages/SearchResultsPage";
-import NotFoundPage from "../pages/NotFoundPage";
+import MainLayout from "components/Layouts/MainLayout";
+import HomePage from "pages/HomePage";
+import GamesPage from "pages/Games/GamesPage";
+import GamesAddPage from "pages/Games/GamesAddPage";
+import GamesAddBatchPage from "pages/Games/GamesAddBatchPage";
+import ConsolesPage from "pages/Consoles/ConsolesPage";
+import ConsolesAddPage from "pages/Consoles/ConsolesAddPage";
+import FranchisesPage from "pages/Franchises/FranchisesPage";
+import FranchisesAddPage from "pages/Franchises/FranchisesAddPage";
+import SettingsPage from "pages/SettingsPage";
+import SearchResultsPage from "pages/SearchResultsPage";
+import NotFoundPage from "pages/NotFoundPage";
 
 export default function AppRouter() {
   return (

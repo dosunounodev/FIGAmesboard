@@ -1,25 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { VisibleForm } from "./styles";
 
-const FormRow = ({
-  isForm,
-  setIsForm,
-  gameData,
+const GamesForm = ({
+  visible,
   inputValues,
   setInputValues,
-  handleSubmit,
-  handleCancel,
+  handleEdit,
+  handleCancelEdit,
   handleDelete,
+  consoles,
 }) => {
+  useEffect(() => {
+    const handleClick = (e) => {
+      handleCancelEdit();
+    };
+    window.addEventListener("click", handleClick);
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [handleCancelEdit]);
+
   return (
-    <form id={gameData.id} onSubmit={handleSubmit}>
+    <VisibleForm
+      id={inputValues.id}
+      onSubmit={handleEdit}
+      onKeyDown={(e) => e.key === "Escape" && handleCancelEdit()}
+      visible={visible}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <table>
         <tbody>
-          <tr onDoubleClick={() => setIsForm(!isForm)}>
+          <tr>
             <td>
               <input
                 type="text"
                 name="name"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({ ...inputValues, name: e.target.value })
                 }
@@ -28,31 +46,46 @@ const FormRow = ({
             </td>
 
             <td>
-              <input
-                type="text"
+              <select
                 name="console"
-                form={gameData.id}
-                onChange={(e) =>
+                form={inputValues.id}
+                onChange={(e) => {
+                  let consoleNameSelected = e.target.value;
+                  let consoleSelected = consoles.filter(
+                    (console) => console.name === consoleNameSelected
+                  );
+                  let consoleIdSelected = consoleSelected[0].id;
+
                   setInputValues({
                     ...inputValues,
-                    console: { ...console, name: e.target.value },
-                  })
-                }
+                    console: {
+                      ...console,
+                      id: consoleIdSelected,
+                      name: consoleNameSelected,
+                    },
+                  });
+                }}
                 value={inputValues.console.name}
-              />
+              >
+                {consoles.map((console) => (
+                  <option key={console.id} value={console.name}>
+                    {console.name}
+                  </option>
+                ))}
+              </select>
             </td>
 
             <td>
               <input
                 type="text"
                 name="franchise"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
                     franchises: [
                       {
-                        id: gameData.franchises[0].id,
+                        id: inputValues.franchises[0].id,
                         name: e.target.value,
                       },
                     ],
@@ -66,7 +99,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="year"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({ ...inputValues, year: e.target.value })
                 }
@@ -78,7 +111,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="hours"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -93,7 +126,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="description"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -108,7 +141,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="bought"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -123,7 +156,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="acquired"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -138,7 +171,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="price"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -153,7 +186,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="owned"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -168,7 +201,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="finished"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -183,7 +216,7 @@ const FormRow = ({
               <input
                 type="text"
                 name="available"
-                form={gameData.id}
+                form={inputValues.id}
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
@@ -196,21 +229,25 @@ const FormRow = ({
 
             <td>
               <button type="submit">Save</button>
-              <button type="reset" onClick={handleCancel}>
+              <button type="reset" onClick={handleCancelEdit}>
                 Cancel
               </button>
             </td>
 
             <td>
-              <button type="button" onClick={handleDelete}>
+              <button
+                onClick={() => {
+                  handleDelete();
+                }}
+              >
                 Delete
               </button>
             </td>
           </tr>
         </tbody>
       </table>
-    </form>
+    </VisibleForm>
   );
 };
 
-export default FormRow;
+export default GamesForm;

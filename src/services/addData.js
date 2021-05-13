@@ -1,24 +1,23 @@
 import axios from "axios";
+import { URL } from "./settings";
 
-const URL = "http://localhost:3004";
-
-const addData = async ({ item, itemData }) => {
+const addData = async ({ type, item }) => {
   try {
     let options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      data: JSON.stringify(itemData),
+      data: JSON.stringify(item),
     };
-    let response = await axios(`${URL}/${item}`, options);
+    let response = await axios(`${URL}/${type}`, options);
     let results = await response.data;
     let error = null;
     return { results, error };
   } catch (err) {
-    let error = `Error ${err.response.status || "X"} : ${
-      err.response.statusText ||
-      `Se produjo un error al hacer POST en: "${URL}/${item}"`
+    let error = `Error ${err.response?.status || "X"} : ${
+      err.response?.statusText ||
+      `Se produjo un error al hacer POST en: "${URL}/${type}"`
     }`;
     let results = null;
     return { results, error };

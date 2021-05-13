@@ -7,7 +7,7 @@ const GamesTableHead = () => {
         <tr>
           <th>Name</th>
           <th>Console</th>
-          <th>Franchise</th>
+          <th>Franchise/s</th>
           <th>Year</th>
           <th>Hours</th>
           <th>Description</th>

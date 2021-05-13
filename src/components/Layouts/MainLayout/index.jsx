@@ -1,18 +1,16 @@
 import React from "react";
-import TopBar from "../../TopBar";
-import SideBar from "../../SideBar";
-import Footer from "../../Footer";
-import { MainContainer } from "./styles";
+import TopBar from "components/TopBar";
+import SideBar from "components/SideBar";
+import Main from "components/Main";
+import Footer from "components/Footer";
 
 const MainLayout = ({ children }) => {
   return (
     <>
       <TopBar />
       <SideBar />
-      <MainContainer>
-        {children}
-        <Footer />
-      </MainContainer>
+      <Main>{children}</Main>
+      <Footer />
     </>
   );
 };

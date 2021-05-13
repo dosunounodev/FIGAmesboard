@@ -1,20 +1,19 @@
 import axios from "axios";
+import { URL } from "./settings";
 
-const URL = "http://localhost:3004";
-
-const deleteData = async ({ item, id }) => {
+const deleteData = async ({ type, id }) => {
   try {
     let options = {
       method: "DELETE",
     };
-    let response = await axios(`${URL}/${item}/${id}`, options);
+    let response = await axios(`${URL}/${type}/${id}`, options);
     let results = await response.data;
     let error = null;
     return { results, error };
   } catch (err) {
-    let error = `Error ${err.response.status || "X"} : ${
-      err.response.statusText ||
-      `Se produjo un error al hacer DELETE en: "${URL}/${item}/${id}"`
+    let error = `Error ${err.response?.status || "X"} : ${
+      err.response?.statusText ||
+      `Se produjo un error al hacer DELETE en: "${URL}/${type}/${id}"`
     }`;
     let results = null;
     return { results, error };

@@ -2,18 +2,23 @@
   "games": [
     {
       "id": 1,
-      "name": "Sonic",
+      "name": "Mario Bross2",
       "console": {
         "memory": {},
+        "id": 2,
         "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
+          "name": "Mario"
+        },
+        {
+          "id": 2,
           "name": "Sonic"
         }
       ],
-      "year": "2000",
+      "year": "1998",
       "hours": "25",
       "description": "",
       "bought": "1",
@@ -27,12 +32,14 @@
       "id": 2,
       "name": "Mario Bross2",
       "console": {
-        "name": "Nintendo"
+        "memory": {},
+        "id": 2,
+        "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
-          "name": "Mario"
+          "name": "Sega"
         }
       ],
       "year": "1998",
@@ -49,12 +56,17 @@
       "id": 3,
       "name": "Mario Bross2",
       "console": {
+        "id": 1,
         "name": "Nintendo"
       },
       "franchises": [
         {
           "id": 1,
           "name": "Mario"
+        },
+        {
+          "id": 2,
+          "name": "Sonic"
         }
       ],
       "year": "1998",
@@ -71,12 +83,18 @@
       "id": 4,
       "name": "Mario Bross2",
       "console": {
-        "name": "Nintendo"
+        "memory": {},
+        "id": 2,
+        "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
           "name": "Mario"
+        },
+        {
+          "id": 2,
+          "name": "Sonic"
         }
       ],
       "year": "1998",
@@ -93,12 +111,18 @@
       "id": 5,
       "name": "Mario Bross2",
       "console": {
-        "name": "Nintendo"
+        "memory": {},
+        "id": 2,
+        "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
           "name": "Mario"
+        },
+        {
+          "id": 2,
+          "name": "Sonic"
         }
       ],
       "year": "1998",
@@ -115,12 +139,18 @@
       "id": 6,
       "name": "Mario Bross2",
       "console": {
-        "name": "Nintendo"
+        "memory": {},
+        "id": 2,
+        "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
           "name": "Mario"
+        },
+        {
+          "id": 2,
+          "name": "Sonic"
         }
       ],
       "year": "1998",
@@ -137,100 +167,18 @@
       "id": 7,
       "name": "Mario Bross2",
       "console": {
-        "name": "Nintendo"
+        "memory": {},
+        "id": 2,
+        "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
           "name": "Mario"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 8,
-      "name": "Mario Bross2",
-      "console": {
-        "name": "Nintendo"
-      },
-      "franchises": [
+        },
         {
-          "id": 1,
-          "name": "Mario"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 9,
-      "name": "Mario Bross2",
-      "console": {
-        "name": "Nintendo"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 10,
-      "name": "Mario Bross2",
-      "console": {
-        "name": "Nintendo"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 11,
-      "name": "Mario Bross2",
-      "console": {
-        "name": "Nintendo"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
+          "id": 2,
+          "name": "Sonic"
         }
       ],
       "year": "1998",

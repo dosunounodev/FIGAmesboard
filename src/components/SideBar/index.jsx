@@ -1,10 +1,10 @@
 import React from "react";
-import IconButton from "../IconButton/";
-import { SideNavNar } from "./styles";
+import IconButton from "components/IconButton/";
+import { SideBarContainer } from "./styles";
 
 const SideBar = () => {
   return (
-    <SideNavNar>
+    <SideBarContainer>
       <section>
         <div>
           <p>Games</p>
@@ -26,7 +26,7 @@ const SideBar = () => {
       <section>
         <IconButton icon="fas fa-cog" to="/settings" />
       </section>
-    </SideNavNar>
+    </SideBarContainer>
   );
 };
 

@@ -1,14 +1,14 @@
 import React from "react";
-import Logo from "../Logo";
-import SearchInput from "../SearchInput";
-import { Header } from "./styles";
+import Logo from "components/Logo";
+import SearchInput from "components/SearchInput";
+import { HeaderContainer } from "./styles";
 
 const TopBar = () => {
   return (
-    <Header>
+    <HeaderContainer>
       <Logo />
       <SearchInput />
-    </Header>
+    </HeaderContainer>
   );
 };
 
