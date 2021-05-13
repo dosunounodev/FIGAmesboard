@@ -2,19 +2,14 @@
   "games": [
     {
       "id": 1,
-      "name": "Mario Bross2",
+      "name": "Sonic",
       "console": {
-        "memory": {},
         "id": 2,
         "name": "Sega"
       },
       "franchises": [
         {
           "id": 1,
-          "name": "Mario"
-        },
-        {
-          "id": 2,
           "name": "Sonic"
         }
       ],
