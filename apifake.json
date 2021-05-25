@@ -1,193 +1,61 @@
 {
-  "games": [
-    {
-      "id": 1,
-      "name": "Sonic",
-      "console": {
-        "id": 2,
-        "name": "Sega"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Sonic"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
+  "game": [
     {
       "id": 2,
-      "name": "Mario Bross2",
-      "console": {
-        "memory": {},
-        "id": 2,
-        "name": "Sega"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Sega"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 3,
-      "name": "Mario Bross2",
+      "name": "Luigi",
       "console": {
         "id": 1,
         "name": "Nintendo"
       },
       "franchises": [
         {
-          "id": 1,
-          "name": "Mario"
+          "id": 5,
+          "name": "Efe 5"
         },
         {
-          "id": 2,
-          "name": "Sonic"
+          "id": 4,
+          "name": "Fra 4"
         }
       ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
+      "year": 2000,
+      "hours": 15,
+      "description": "A special Game and a long description that really don't say anything lol",
+      "acquired": "2021-05-10",
+      "price": 50,
+      "bought": "Ebay",
       "owned": true,
-      "finished": false,
-      "available": false
+      "finished": true,
+      "available": true
     },
     {
-      "id": 4,
-      "name": "Mario Bross2",
+      "id": 3,
+      "name": "Tenis",
       "console": {
-        "memory": {},
         "id": 2,
         "name": "Sega"
       },
       "franchises": [
         {
-          "id": 1,
-          "name": "Mario"
+          "id": 4,
+          "name": "Fra 4"
         },
         {
-          "id": 2,
-          "name": "Sonic"
+          "id": 3,
+          "name": "Franquicia 3"
         }
       ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
+      "year": 2000,
+      "hours": 10,
+      "description": "A special Game",
+      "acquired": "1990-12-30",
+      "price": 50,
+      "bought": "MercadoLibre",
       "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 5,
-      "name": "Mario Bross2",
-      "console": {
-        "memory": {},
-        "id": 2,
-        "name": "Sega"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
-        },
-        {
-          "id": 2,
-          "name": "Sonic"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 6,
-      "name": "Mario Bross2",
-      "console": {
-        "memory": {},
-        "id": 2,
-        "name": "Sega"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
-        },
-        {
-          "id": 2,
-          "name": "Sonic"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
-    },
-    {
-      "id": 7,
-      "name": "Mario Bross2",
-      "console": {
-        "memory": {},
-        "id": 2,
-        "name": "Sega"
-      },
-      "franchises": [
-        {
-          "id": 1,
-          "name": "Mario"
-        },
-        {
-          "id": 2,
-          "name": "Sonic"
-        }
-      ],
-      "year": "1998",
-      "hours": "25",
-      "description": "",
-      "bought": "1",
-      "acquired": "1",
-      "price": 35,
-      "owned": true,
-      "finished": false,
-      "available": false
+      "finished": true,
+      "available": true
     }
   ],
-  "consoles": [
+  "console": [
     {
       "id": 1,
       "name": "Nintendo"
@@ -201,18 +69,37 @@
       "name": "Atari"
     }
   ],
-  "franchises": [
+  "franchise": [
     {
       "id": 1,
       "name": "Mario",
-      "totalCount": 150,
-      "totalOwned": 38
+      "default": false
     },
     {
       "id": 2,
       "name": "Sonic",
-      "totalCount": 90,
-      "totalOwned": 23
+      "default": false
+    },
+    {
+      "id": 3,
+      "name": "Franquicia 3",
+      "default": true
+    },
+    {
+      "id": 4,
+      "name": "Fra 4",
+      "default": false
+    },
+    {
+      "id": 5,
+      "name": "Efe 5",
+      "default": false
     }
-  ]
+  ],
+  "collection": {
+    "totalGames": 4201,
+    "finishedGames": 2541,
+    "ownedGames": 3841,
+    "totalOwnedValue": 12867
+  }
 }

@@ -102,13 +102,12 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
+  line-height: 1;
   margin: 0;
 }
 button,
 input {
-  overflow: visible;
+  overflow: hidden;
 }
 button,
 select {
@@ -131,7 +130,7 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: 0px dotted ButtonText;
 }
 fieldset {
   padding: 0.35em 0.75em 0.625em;

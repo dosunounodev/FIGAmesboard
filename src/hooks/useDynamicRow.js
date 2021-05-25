@@ -1,25 +1,50 @@
-import { useState } from "react";
-import { editData } from "services/editData";
+import { useContext, useState } from "react";
+import DataContext from "contexts/DataContext";
 import { getData } from "services/getData";
+import { editData } from "services/editData";
 import { deleteData } from "services/deleteData";
 
-const useDynamicRow = ({ type, data }) => {
-  const [visible, setVisible] = useState(true);
+const useDynamicRow = ({ gameData }) => {
   const [isForm, setIsForm] = useState(false);
-  const [inputValues, setInputValues] = useState(data);
+  const [inputValues, setInputValues] = useState(gameData);
+  const { games, setGames, setConsoles, setFranchises } =
+    useContext(DataContext);
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    const { error, results } = await editData({
-      type,
+
+    const { error: errorGames, results: resultsGames } = await editData({
+      type: "games",
       item: inputValues,
     });
-    error ? alert(error) : setInputValues(results);
-    setIsForm(false);
+    const { error: errorConsoles, results: resultsConsoles } = await getData({
+      type: "consoles",
+      id: "all",
+    });
+    const { error: errorFranchises, results: resultsFranchises } =
+      await getData({ type: "Franchises", id: "all" });
+
+    errorGames && alert(errorGames);
+    errorConsoles && alert(errorConsoles);
+    errorFranchises && alert(errorFranchises);
+
+    if (!errorGames && !errorConsoles && !errorFranchises) {
+      alert("editado con exito");
+      const newGames = games.map((game) =>
+        game.id === resultsGames.id ? resultsGames : game
+      );
+      setGames(newGames);
+      setConsoles(resultsConsoles);
+      setFranchises(resultsFranchises);
+      setIsForm(false);
+    }
   };
 
   const handleCancelEdit = async () => {
-    const { error, results } = await getData({ type, id: data.id });
+    const { error, results } = await getData({
+      type: "games",
+      id: gameData.id,
+    });
     error ? alert(error) : setInputValues(...results);
     setIsForm(false);
   };
@@ -27,18 +52,35 @@ const useDynamicRow = ({ type, data }) => {
   const handleDelete = async () => {
     let confirmacion = window.confirm("estas seguro?");
     if (confirmacion) {
-      const { error } = await deleteData({ type, id: data.id });
-      if (error) {
-        alert(error);
-      } else {
+      const { error: errorGames } = await deleteData({
+        type: "games",
+        id: gameData.id,
+      });
+      const { error: errorConsoles, results: resultsConsoles } = await getData({
+        type: "consoles",
+        id: "all",
+      });
+      const { error: errorFranchises, results: resultsFranchises } =
+        await getData({
+          type: "franchises",
+          id: "all",
+        });
+
+      errorGames && alert(errorGames);
+      errorConsoles && alert(errorConsoles);
+      errorFranchises && alert(errorFranchises);
+
+      if (!errorGames && !errorConsoles && !errorFranchises) {
         alert("borrado con exito");
-        setVisible(false);
+        const newGames = games.filter((game) => game.id !== inputValues.id);
+        setGames(newGames);
+        setConsoles(resultsConsoles);
+        setFranchises(resultsFranchises);
       }
     }
   };
 
   return {
-    visible,
     isForm,
     setIsForm,
     inputValues,

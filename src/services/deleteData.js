@@ -11,9 +11,9 @@ const deleteData = async ({ type, id }) => {
     let error = null;
     return { results, error };
   } catch (err) {
+    let msg = `Se produjo un error al hacer DELETE en: "${URL}/${type}/${id}"`;
     let error = `Error ${err.response?.status || "X"} : ${
-      err.response?.statusText ||
-      `Se produjo un error al hacer DELETE en: "${URL}/${type}/${id}"`
+      err.response?.statusText || msg
     }`;
     let results = null;
     return { results, error };

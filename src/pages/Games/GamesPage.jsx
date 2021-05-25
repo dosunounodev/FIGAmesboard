@@ -1,44 +1,54 @@
-import React from "react";
-import Error from "components/Error";
-import Loader from "components/Loader";
-import DynamicRow from "components/DynamicRow";
-import GamesTableHead from "components/DynamicRow/GamesTableHead";
-import useGetData from "hooks/useGetData";
+import React, { useContext, useState } from "react";
+import GamesWidgets from "components/GamesComponents/GamesWidgets/GamesWidgets";
+import GamesTableHead from "components/GamesComponents/GamesTable/GamesTableHead";
+import GamesDynamicRow from "components/GamesComponents/GamesTable/GamesDynamicRow";
+import Loader from "components/Misc/Loader";
+import DataContext from "contexts/DataContext";
 
-function GamesPage() {
-  const {
-    data: games,
-    error: errorGames,
-    loading: loadingGames,
-  } = useGetData({ type: "games" });
+const GamesPage = () => {
+  console.log("render GamesPage");
 
-  const {
-    data: consoles,
-    error: errorConsoles,
-    loading: loadingConsoles,
-  } = useGetData({ type: "consoles" });
+  const { loading, games, activeFranchise } = useContext(DataContext);
+  const [keyword, setKeyword] = useState("");
+  const filteredGames = games.filter(
+    (game) =>
+      game.name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(keyword) ||
+      game.description
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(keyword)
+  );
 
   return (
     <>
-      <h2>Games</h2>
-      {errorGames && <Error error={errorGames} />}
-      {errorConsoles && <Error error={errorConsoles} />}
-      {(loadingGames || loadingConsoles) && <Loader />}
-      {games && consoles && (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
+          <h2>
+            🕹 Showing Games of{" "}
+            <span>
+              {activeFranchise?.name}{" "}
+              <span>
+                {keyword.length > 0 && `filtered by `}
+                <span>{keyword.length > 0 && `"${keyword}"`}</span>
+              </span>
+            </span>
+          </h2>
+          <GamesWidgets setKeyword={setKeyword} />
           <GamesTableHead />
-          {games.map((game) => (
-            <DynamicRow
-              key={game.id}
-              type="games"
-              data={game}
-              consoles={consoles}
-            />
+          {filteredGames.map((game) => (
+            <GamesDynamicRow key={game.id} gameData={game} />
           ))}
         </>
       )}
     </>
   );
-}
+};
 
 export default GamesPage;

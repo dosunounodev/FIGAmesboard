@@ -15,9 +15,9 @@ const editData = async ({ type, item }) => {
     let error = null;
     return { results, error };
   } catch (err) {
+    let msg = `Se produjo un error al hacer PUT en: "${URL}/${type}/${item.id}"`;
     let error = `Error ${err.response?.status || "X"} : ${
-      err.response?.statusText ||
-      `Se produjo un error al hacer PUT en: "${URL}/${type}/${item.id}"`
+      err.response?.statusText || msg
     }`;
     let results = null;
     return { results, error };

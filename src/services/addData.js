@@ -15,9 +15,9 @@ const addData = async ({ type, item }) => {
     let error = null;
     return { results, error };
   } catch (err) {
+    let msg = `Se produjo un error al hacer POST en: "${URL}/${type}"`;
     let error = `Error ${err.response?.status || "X"} : ${
-      err.response?.statusText ||
-      `Se produjo un error al hacer POST en: "${URL}/${type}"`
+      err.response?.statusText || msg
     }`;
     let results = null;
     return { results, error };
