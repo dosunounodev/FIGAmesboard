@@ -2,6 +2,7 @@
   "name": "figamesboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dosunounodev.github.io/FIGAmesboard/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
@@ -21,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "jsonserver": "json-server --watch apifake.json --port 3004"
+    "jsonserver": "json-server --watch apifake.json --port 3004",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
