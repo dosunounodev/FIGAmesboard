@@ -173,7 +173,7 @@ const GamesTableForm = ({
                 onChange={(e) =>
                   setInputValues({
                     ...inputValues,
-                    price: e.target.value,
+                    price: Number(e.target.value),
                   })
                 }
                 value={inputValues.price}

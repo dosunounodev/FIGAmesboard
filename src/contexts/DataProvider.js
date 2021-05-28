@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import DataContext from "contexts/DataContext";
-import useGetInitialData from "hooks/useGetInitialData";
-import useUpdateGames from "hooks/useUpdateGames";
+import React, { useState } from 'react';
+import DataContext from 'contexts/DataContext';
+import useGetInitialData from 'hooks/useGetInitialData';
+import useUpdateGames from 'hooks/useUpdateGames';
 
 const DataProvider = ({ children }) => {
   const [franchises, setFranchises] = useState([]);
