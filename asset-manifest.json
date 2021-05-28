@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/FIGAmesboard/static/css/main.1c4fa894.chunk.css",
+    "main.js": "/FIGAmesboard/static/js/main.53a2d984.chunk.js",
+    "main.js.map": "/FIGAmesboard/static/js/main.53a2d984.chunk.js.map",
+    "runtime-main.js": "/FIGAmesboard/static/js/runtime-main.1b1b041e.js",
+    "runtime-main.js.map": "/FIGAmesboard/static/js/runtime-main.1b1b041e.js.map",
+    "static/js/2.f79d5fd7.chunk.js": "/FIGAmesboard/static/js/2.f79d5fd7.chunk.js",
+    "static/js/2.f79d5fd7.chunk.js.map": "/FIGAmesboard/static/js/2.f79d5fd7.chunk.js.map",
+    "index.html": "/FIGAmesboard/index.html",
+    "static/css/main.1c4fa894.chunk.css.map": "/FIGAmesboard/static/css/main.1c4fa894.chunk.css.map",
+    "static/js/2.f79d5fd7.chunk.js.LICENSE.txt": "/FIGAmesboard/static/js/2.f79d5fd7.chunk.js.LICENSE.txt",
+    "static/media/loader.28cb6463.svg": "/FIGAmesboard/static/media/loader.28cb6463.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b1b041e.js",
+    "static/js/2.f79d5fd7.chunk.js",
+    "static/css/main.1c4fa894.chunk.css",
+    "static/js/main.53a2d984.chunk.js"
+  ]
+}
