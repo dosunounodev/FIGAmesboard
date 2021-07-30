@@ -1,8 +1,39 @@
 {
   "game": [
     {
-      "id": 2,
-      "name": "Luigi",
+      "id": 1,
+      "name": "Tenis pro",
+      "console": {
+        "id": 3,
+        "name": "Atari"
+      },
+      "franchises": [
+        {
+          "id": 5,
+          "name": "Efe 5"
+        },
+        {
+          "id": 4,
+          "name": "Fra 4"
+        },
+        {
+          "id": 3,
+          "name": "Franquicia 3"
+        }
+      ],
+      "year": 2000,
+      "hours": 10,
+      "description": "A special Game",
+      "acquired": "1990-12-30",
+      "price": 10,
+      "bought": "MercadoLibre",
+      "owned": true,
+      "finished": true,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Mario vs Luigi",
       "console": {
         "id": 1,
         "name": "Nintendo"
@@ -14,26 +45,26 @@
         }
       ],
       "year": 2000,
-      "hours": 15,
-      "description": "A long description that really don't say anything lol jejeje",
-      "acquired": "2021-05-10",
-      "price": 50,
-      "bought": "Ebay",
-      "owned": true,
-      "finished": false,
-      "available": true
+      "hours": 10,
+      "description": "el juego favorito de tucci",
+      "acquired": "1990-12-04",
+      "price": 20,
+      "bought": "MercadoLibre",
+      "owned": false,
+      "finished": true,
+      "available": false
     },
     {
-      "id": 3,
-      "name": "Tenis",
+      "id": 5,
+      "name": "asdasd",
       "console": {
         "id": 2,
         "name": "Sega"
       },
       "franchises": [
         {
-          "id": 5,
-          "name": "Efe 5"
+          "id": 1,
+          "name": "Mario"
         }
       ],
       "year": 2000,

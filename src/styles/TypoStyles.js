@@ -1,4 +1,6 @@
-// TYPO
+import { createGlobalStyle } from 'styled-components';
+
+const TypoStyle = createGlobalStyle`
 
 html {
   font-size: 62.5%;
@@ -74,3 +76,7 @@ small {
   font-weight: 400;
   line-height: 1.5;
 }
+
+`;
+
+export default TypoStyle;

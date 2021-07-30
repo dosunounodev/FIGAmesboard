@@ -1,9 +1,9 @@
-import axios from "axios";
-import { URL } from "./settings";
+import axios from 'axios';
+import { URL } from './settings';
 
 const getData = async ({
   type,
-  id = "all",
+  id = 'all',
   parentType = null,
   parentId = null,
 }) => {
@@ -11,7 +11,7 @@ const getData = async ({
 
   parentType
     ? (urlTarget = `${URL}/${parentType}/${parentId}/${type}`)
-    : (urlTarget = id === "all" ? `${URL}/${type}` : `${URL}/${type}/${id}`);
+    : (urlTarget = id === 'all' ? `${URL}/${type}` : `${URL}/${type}/${id}`);
 
   try {
     let response = await axios.get(urlTarget);
@@ -21,7 +21,7 @@ const getData = async ({
     return { results, error };
   } catch (err) {
     let msg = `Se produjo un error al hacer GET en: "${URL}/${type}/${id}"`;
-    let error = `Error ${err.response?.status || "X"} : ${
+    let error = `Error ${err.response?.status || 'X'} : ${
       err.response?.statusText || msg
     }`;
     let results = null;

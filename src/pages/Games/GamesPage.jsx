@@ -1,26 +1,26 @@
-import React, { useContext, useState } from "react";
-import GamesWidgets from "components/GamesComponents/GamesWidgets/GamesWidgets";
-import GamesTableHead from "components/GamesComponents/GamesTable/GamesTableHead";
-import GamesDynamicRow from "components/GamesComponents/GamesTable/GamesDynamicRow";
-import Loader from "components/Misc/Loader";
-import DataContext from "contexts/DataContext";
+import React, { useState } from 'react';
+import GamesWidgets from 'components/GamesComponents/GamesWidgets/GamesWidgets';
+import GamesTableHead from 'components/GamesComponents/GamesTable/GamesTableHead';
+import GamesDynamicRow from 'components/GamesComponents/GamesTable/GamesDynamicRow';
+import Loader from 'components/Misc/Loader';
+import useDataContext from 'hooks/useDataContext';
 
 const GamesPage = () => {
-  console.log("render GamesPage");
+  console.log('render GamesPage');
 
-  const { loading, games, activeFranchise } = useContext(DataContext);
-  const [keyword, setKeyword] = useState("");
+  const { loading, games, activeFranchise } = useDataContext();
+  const [keyword, setKeyword] = useState('');
   const filteredGames = games.filter(
     (game) =>
       game.name
         .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
         .includes(keyword) ||
       game.description
         .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
         .includes(keyword)
   );
 
@@ -31,9 +31,9 @@ const GamesPage = () => {
       ) : (
         <>
           <h2>
-            🕹 Showing Games of{" "}
+            🕹 Showing Games of{' '}
             <span>
-              {activeFranchise?.name}{" "}
+              {activeFranchise?.name}{' '}
               <span>
                 {keyword.length > 0 && `filtered by `}
                 <span>{keyword.length > 0 && `"${keyword}"`}</span>

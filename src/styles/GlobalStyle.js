@@ -1,4 +1,6 @@
-// Base
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 
 html {
   scroll-behavior: smooth;
@@ -6,9 +8,8 @@ html {
 
 body {
   position: relative;
-  margin: 0;
+  margin: 0px;
   padding: 0;
-  background-color: #fff;
 }
 
 table:nth-child(even) td {
@@ -17,3 +18,7 @@ table:nth-child(even) td {
 table:nth-child(odd) td {
   background-color: rgb(255, 255, 255);
 }
+
+`;
+
+export default GlobalStyle;

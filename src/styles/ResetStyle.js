@@ -1,4 +1,6 @@
-// Reset
+import { createGlobalStyle } from 'styled-components';
+
+const ResetStyle = createGlobalStyle`
 
 // document
 html {
@@ -169,3 +171,7 @@ textarea {
   -webkit-appearance: button;
   font: inherit;
 }
+
+`;
+
+export default ResetStyle;
